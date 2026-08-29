@@ -1,7 +1,11 @@
 {
-  "name": "zhonghui-shiyan",
+  "name": "zhonghui-shiyan-site",
   "compatibility_date": "2026-08-29",
   "assets": {
-    "directory": "."
+    "directory": ".",
+    "exclude": [
+      ".git/**",
+      "wrangler.jsonc"
+    ]
   }
 }
