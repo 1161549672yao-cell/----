@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>财税文章中心 - 中汇税务十堰所</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+
+<style>
+
+body{
+    background:#f5f7fb;
+    margin:0;
+    font-family:"Microsoft YaHei";
+}
+
+
+.top{
+
+    background:white;
+    height:75px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 60px;
+
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+
+}
+
+
+.logo{
+
+    font-size:28px;
+    font-weight:bold;
+    color:#0c5aa6;
+
+}
+
+
+nav a{
+
+    margin-left:25px;
+
+    text-decoration:none;
+
+    color:#333;
+
+}
+
+
+nav a:hover{
+
+    color:#0c5aa6;
+
+}
+
+
+
+.container{
+
+    width:1200px;
+    max-width:92%;
+
+    margin:40px auto;
+
+    display:flex;
+
+    gap:30px;
+
+}
+
+
+
+.left{
+
+    width:220px;
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:0 0 20px rgba(0,0,0,.05);
+
+}
+
+
+
+.title{
+
+    font-size:24px;
+
+    color:#0c5aa6;
+
+    margin-bottom:25px;
+
+}
+
+
+
+
+.menu{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+
+
+
+.menu li{
+
+    padding:14px;
+
+    margin-bottom:12px;
+
+    border-radius:10px;
+
+    background:#f4f7fa;
+
+    cursor:pointer;
+
+}
+
+
+
+
+.menu li:hover{
+
+    background:#0c5aa6;
+
+    color:white;
+
+}
+
+
+
+
+
+.right{
+
+    flex:1;
+
+}
+
+
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:25px;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 0 15px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+
+.card img{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+
+}
+
+
+
+.card-content{
+
+    padding:20px;
+
+}
+
+
+
+.card h3{
+
+    color:#0c5aa6;
+
+}
+
+
+
+.card p{
+
+    color:#666;
+
+    font-size:14px;
+
+    line-height:26px;
+
+}
+
+
+.card a{
+
+    color:#0c5aa6;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+}
+
+
+/* ==========================
+   文章中心 · 左侧导航
+========================== */
+
+.article-sidebar{
+
+    width:250px;
+
+    flex-shrink:0;
+
+    background:#ffffff;
+
+    border-radius:18px;
+
+    padding:30px 22px;
+
+    box-shadow:0 10px 35px rgba(0,59,122,.08);
+
+    border:1px solid rgba(0,91,172,.06);
+
+    height:fit-content;
+
+    position:sticky;
+
+    top:105px;
+
+}
+
+.sidebar-heading{
+    padding:0 8px;
+}
+
+.sidebar-heading span{
+    display:block;
+    color:#005BAC;
+    font-size:11px;
+    letter-spacing:2.5px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.sidebar-heading h2{
+    margin:0;
+    color:#003B7A;
+    font-size:25px;
+    font-weight:600;
+    letter-spacing:1px;
+}
+
+.sidebar-heading p{
+    margin:5px 0 0;
+    color:#9aa8b5;
+    font-size:12px;
+    letter-spacing:2px;
+}
+
+.sidebar-line{
+    height:1px;
+    background:linear-gradient(
+        to right,
+        #005BAC,
+        rgba(0,91,172,.08)
+    );
+    margin:24px 8px 18px;
+}
+
+.article-menu{
+    list-style:none;
+    padding:0;
+    margin:0;
+}
+
+.article-menu li{
+    height:48px;
+    display:flex;
+    align-items:center;
+    padding:0 13px;
+    margin:5px 0;
+    border-radius:10px;
+    color:#4b5966;
+    font-size:15px;
+    cursor:pointer;
+    position:relative;
+    transition:all .3s ease;
+}
+
+.menu-icon{
+    font-size:10px;
+    color:#9aabbc;
+    margin-right:12px;
+    transition:.3s;
+}
+
+.article-menu b{
+    margin-left:auto;
+    font-size:18px;
+    font-weight:normal;
+    color:#b5c0ca;
+    opacity:0;
+    transform:translateX(-5px);
+    transition:.3s;
+}
+
+.article-menu li:hover{
+    background:#f2f7fc;
+    color:#005BAC;
+    transform:translateX(3px);
+}
+
+.article-menu li:hover .menu-icon{
+    color:#005BAC;
+}
+
+.article-menu li:hover b{
+    opacity:1;
+    transform:translateX(0);
+    color:#005BAC;
+}
+
+.article-menu li.active{
+    background:linear-gradient(
+        135deg,
+        #005BAC,
+        #0b72c8
+    );
+    color:white;
+    box-shadow:0 7px 18px rgba(0,91,172,.2);
+}
+
+.article-menu li.active .menu-icon{
+    color:white;
+}
+
+.article-menu li.active b{
+    opacity:1;
+    transform:translateX(0);
+    color:white;
+}
+
+.article-menu li.active::before{
+    content:"";
+    position:absolute;
+    left:-22px;
+    top:12px;
+    width:3px;
+    height:24px;
+    border-radius:0 3px 3px 0;
+    background:#005BAC;
+}
+
+.article-menu li:active{
+    transform:scale(.98);
+}
+
+</style>
+
+    
+
+
+
+</style>
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="top">
+
+
+<div class="logo">
+
+中汇税务十堰所 · 财税文章中心
+
+</div>
+
+
+<nav>
+
+<a href="index.html">首页</a>
+
+<a href="articles.html">财税研究</a>
+
+<a href="#">关于我们</a>
+
+<a href="#">团队荣誉</a>
+
+<a href="#">企业理念</a>
+
+</nav>
+
+
+</div>
+
+
+
+<div class="container">
+
+
+<div class="article-sidebar">
+
+    <div class="sidebar-heading">
+
+        <span>ARTICLE CENTER</span>
+
+        <h2>文章中心</h2>
+
+        <p>专业 · 权威 · 分享</p>
+
+    </div>
+
+
+    <div class="sidebar-line"></div>
+
+
+    <ul class="article-menu">
+
+        <li class="active" onclick="filterArticles('全部')">
+            <span class="menu-icon">◈</span>
+            <span>全部文章</span>
+            <b>›</b>
+        </li>
+
+        <li onclick="filterArticles('增值税')">
+            <span class="menu-icon">◈</span>
+            <span>增值税</span>
+            <b>›</b>
+        </li>
+
+        <li onclick="filterArticles('企业所得税')">
+            <span class="menu-icon">◈</span>
+            <span>企业所得税</span>
+            <b>›</b>
+        </li>
+
+        <li onclick="filterArticles('个人所得税')">
+            <span class="menu-icon">◈</span>
+            <span>个人所得税</span>
+            <b>›</b>
+        </li>
+
+        <li onclick="filterArticles('印花税')">
+            <span class="menu-icon">◈</span>
+            <span>印花税</span>
+            <b>›</b>
+        </li>
+
+        <li onclick="filterArticles('房产税')">
+            <span class="menu-icon">◈</span>
+            <span>房产税</span>
+            <b>›</b>
+        </li>
+
+        <li onclick="filterArticles('土地增值税')">
+            <span class="menu-icon">◈</span>
+            <span>土地增值税</span>
+            <b>›</b>
+        </li>
+
+        <li onclick="filterArticles('综合政策')">
+            <span class="menu-icon">◈</span>
+            <span>综合政策</span>
+            <b>›</b>
+        </li>
+
+    </ul>
+
+</div>
+
+<div class="right">
+
+
+<div class="cards" id="articleList">
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- 分页区域 -->
+<div id="pagination" style="
+    text-align:center;
+    margin:50px 0;
+"></div>
+
+
+
+
+
+<!-- 读取文章数据 -->
+
+
+<script src="js/articles.js"></script>
+
+
+<script>
+
+const articleList = document.getElementById("articleList");
+const pagination = document.getElementById("pagination");
+
+
+// ==========================
+// 分页设置
+// ==========================
+
+const pageSize = 12;
+
+let currentPage = 1;
+
+let currentArticles = articles;
+
+
+// ==========================
+// 渲染文章
+// ==========================
+
+function renderArticles(data){
+
+    articleList.innerHTML = "";
+
+    if(data.length === 0){
+
+        articleList.innerHTML = `
+            <p style="
+                font-size:18px;
+                color:#666;
+                grid-column:1/-1;
+                text-align:center;
+            ">
+                暂无该分类文章
+            </p>
+        `;
+
+        pagination.innerHTML = "";
+
+        return;
+    }
+
+
+    // 计算当前页文章
+
+    const start = (currentPage - 1) * pageSize;
+
+    const end = start + pageSize;
+
+    const pageArticles = data.slice(start, end);
+
+// ==========================
+// 封面图片
+// ==========================
+
+const coverImages = [
+    "images/article-covers/cover1.jpg",
+    "images/article-covers/cover2.jpg",
+    "images/article-covers/cover3.jpg",
+    "images/article-covers/cover4.jpg",
+    "images/article-covers/cover5.jpg",
+    "images/article-covers/cover6.jpg",
+    "images/article-covers/cover7.jpg",
+    "images/article-covers/cover8.jpg",
+    "images/article-covers/cover9.jpg",
+    "images/article-covers/cover10.jpg",
+    "images/article-covers/cover11.jpg",
+    "images/article-covers/cover12.jpg",
+    "images/article-covers/cover13.jpg"
+];
+
+function getCover(index) {
+    return coverImages[index % coverImages.length];
+}
+
+    // 渲染当前页
+
+    pageArticles.forEach(item => {
+
+        let index = articles.indexOf(item);
+
+        articleList.innerHTML += `
+
+            <div class="card">
+
+               <img src="${getCover(index)}" alt="文章封面" loading="lazy">
+
+                <div class="card-content">
+
+                    <h3>
+                        ${item.title}
+                    </h3>
+
+                    <p>
+                        分类：${item.category}
+                    </p>
+
+                    <a href="article-detail.html?id=${index}">
+                        阅读全文 →
+                    </a>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+
+    // 更新分页
+
+    renderPagination(data.length);
+
+}
+
+
+
+// ==========================
+// 生成分页按钮
+// ==========================
+
+function renderPagination(total){
+
+    const totalPages = Math.ceil(total / pageSize);
+
+    pagination.innerHTML = "";
+
+
+    if(totalPages <= 1){
+
+        return;
+
+    }
+
+
+    // 上一页
+
+    const prev = document.createElement("button");
+
+    prev.innerHTML = "← 上一页";
+
+    prev.disabled = currentPage === 1;
+
+    prev.onclick = function(){
+
+        if(currentPage > 1){
+
+            currentPage--;
+
+            renderArticles(currentArticles);
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        }
+
+    };
+
+
+    // 页码
+
+    const pageInfo = document.createElement("span");
+
+    pageInfo.innerHTML = `
+        第 ${currentPage} / ${totalPages} 页
+    `;
+
+    pageInfo.style.margin = "0 20px";
+
+    pageInfo.style.color = "#555";
+
+    pageInfo.style.fontWeight = "bold";
+
+
+    // 下一页
+
+    const next = document.createElement("button");
+
+    next.innerHTML = "下一页 →";
+
+    next.disabled = currentPage === totalPages;
+
+    next.onclick = function(){
+
+        if(currentPage < totalPages){
+
+            currentPage++;
+
+            renderArticles(currentArticles);
+
+            window.scrollTo({
+                top:0,
+                behavior:"smooth"
+            });
+
+        }
+
+    };
+
+
+    // 按钮样式
+
+    [prev,next].forEach(button => {
+
+        button.style.background = "#0c5aa6";
+
+        button.style.color = "white";
+
+        button.style.border = "none";
+
+        button.style.padding = "12px 20px";
+
+        button.style.borderRadius = "8px";
+
+        button.style.cursor = "pointer";
+
+        button.style.fontSize = "14px";
+
+    });
+
+
+    pagination.appendChild(prev);
+
+    pagination.appendChild(pageInfo);
+
+    pagination.appendChild(next);
+
+}
+
+
+
+// ==========================
+// 分类筛选 + 动画
+// ==========================
+
+function filterArticles(category){
+
+    let result;
+
+
+    if(category === "全部"){
+
+        result = articles;
+
+    }else{
+
+        result = articles.filter(item => {
+
+            return item.category === category;
+
+        });
+
+    }
+
+
+    // 更新当前数据
+
+    currentArticles = result;
+
+    currentPage = 1;
+
+    // 更新左侧导航的选中状态
+document.querySelectorAll(".article-menu li").forEach(item => {
+
+    item.classList.remove("active");
+
+});
+
+event.currentTarget.classList.add("active");
+
+
+    // 淡出
+
+    articleList.classList.add("fade-out");
+
+
+    setTimeout(()=>{
+
+        renderArticles(currentArticles);
+
+        articleList.classList.remove("fade-out");
+
+    },350);
+
+}
+
+
+
+// ==========================
+// 第一次加载
+// ==========================
+
+renderArticles(currentArticles);
+
+
+</script>
+
+
+
+</body>
+
+
+</html>
