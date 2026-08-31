@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>文章详情 - 中汇税务十堰所</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+
+<style>
+
+body{
+
+    background:#f5f7fb;
+    margin:0;
+    font-family:"Microsoft YaHei";
+
+}
+
+
+.top{
+
+    background:white;
+    height:75px;
+    display:flex;
+    align-items:center;
+    padding:0 60px;
+    box-shadow:0 2px 15px rgba(0,0,0,.08);
+
+}
+
+
+.logo{
+
+    font-size:28px;
+    color:#0c5aa6;
+    font-weight:bold;
+
+}
+
+
+
+.article-box{
+
+    width:900px;
+
+    margin:50px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:15px;
+
+    box-shadow:0 0 20px rgba(0,0,0,.08);
+
+}
+
+
+
+h1{
+
+    color:#0c5aa6;
+
+}
+
+
+.info{
+
+    color:#888;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.content{
+
+    line-height:2;
+
+    font-size:16px;
+
+    color:#333;
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="top">
+
+<div class="logo">
+
+中汇税务十堰所 · 财税研究
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="article-box">
+
+
+<h1 id="title">
+
+文章标题
+
+</h1>
+
+
+<div class="info">
+
+分类：
+<span id="category"></span>
+
+</div>
+
+
+
+<div class="content">
+
+
+这里显示文章正文内容。
+
+
+</div>
+
+
+</div>
+
+
+
+<script src="js/articles.js"></script>
+
+
+
+<script>
+
+
+// 获取网址里的文章编号
+
+const params = new URLSearchParams(window.location.search);
+
+
+const id = params.get("id");
+
+
+
+// 找到对应文章
+
+const article = articles[id];
+
+
+
+if(article){
+
+    document.getElementById("title").innerHTML = article.title;
+
+    document.getElementById("category").innerHTML = article.category;
+
+
+    fetch(encodeURI(article.file))
+    .then(response => response.text())
+    .then(text => {
+
+        document.querySelector(".content").innerHTML = 
+        text.replace(/\n/g,"<br>");
+
+    });
+
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
